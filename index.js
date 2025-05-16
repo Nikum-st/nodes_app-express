@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express')
 const chalk = require('chalk')
 const path = require('path')
@@ -153,7 +154,7 @@ app.put('/:id', async (req, res) => {
 })
 
 mongoose.connect(
-  'mongodb+srv://nikitaumanskiy1998:kum@cluster0.mj3bt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+  process.env.MONGODB_CONNECTION
 ).then(() => {
   app.listen(port, () => {
     console.log(chalk.green(`Server has been started on port ${port}...`))
